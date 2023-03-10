@@ -67,7 +67,11 @@ static const adc_config_t g_smart_stake_adc_config = {
 };
 
 // TX tuning code for the ADC data.
-static tuning_code_t g_smart_stake_tx_tuning_code;
+static tuning_code_t g_smart_stake_tx_tuning_code = {
+    .coarse = 23,
+    .mid = 28,
+    .fine = 18,
+};
 
 // TX sequence number for the ADC data.
 static uint8_t g_smart_stake_tx_sequence_number = 0;
@@ -109,17 +113,6 @@ int main(void) {
     crc_check();
     perform_calibration();
 
-    printf("Running channel calibration.\n");
-    if (!channel_cal_run()) {
-        return EXIT_FAILURE;
-    }
-
-    if (!channel_cal_get_tx_tuning_code(IEEE_802_15_4_TX_CHANNEL,
-                                        &g_smart_stake_tx_tuning_code)) {
-        printf("No TX tuning code found for channel %u.\n",
-               IEEE_802_15_4_TX_CHANNEL);
-        return EXIT_FAILURE;
-    }
     printf("Transmitting on channel %u: (%u, %u, %u).\n",
            IEEE_802_15_4_TX_CHANNEL, g_smart_stake_tx_tuning_code.coarse,
            g_smart_stake_tx_tuning_code.mid, g_smart_stake_tx_tuning_code.fine);
