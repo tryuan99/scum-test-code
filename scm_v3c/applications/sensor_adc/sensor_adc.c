@@ -22,7 +22,7 @@
 // If true, take measurements with the ADC during the ramp.
 #define ADC_ENABLED false
 
-// Number of for loop cycles after between sensor measurements.
+// Number of for loop cycles after between ADC reads.
 // 700000 for loop cycles roughly correspond to 1 second.
 #define NUM_CYCLES_BETWEEN_ADC_READS 10000000
 
