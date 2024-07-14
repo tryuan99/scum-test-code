@@ -466,6 +466,36 @@
               <FileType>5</FileType>
               <FilePath>.\time_constant.h</FilePath>
             </File>
+            <File>
+              <FileName>channel_cal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\channel_cal\channel_cal.c</FilePath>
+            </File>
+            <File>
+              <FileName>channel_cal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\channel_cal\channel_cal.h</FilePath>
+            </File>
+            <File>
+              <FileName>tuning.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\tuning.c</FilePath>
+            </File>
+            <File>
+              <FileName>tuning.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\tuning.h</FilePath>
+            </File>
+            <File>
+              <FileName>ieee_802_15_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\ieee_802_15_4.c</FilePath>
+            </File>
+            <File>
+              <FileName>ieee_802_15_4.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\ieee_802_15_4.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

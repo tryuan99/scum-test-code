@@ -324,7 +324,6 @@ bool channel_cal_run(void) {
                 if (tuning_end_of_sweep(&g_channel_cal_rx_tuning_code,
                                         &g_channel_cal_rx_sweep_config)) {
                     rftimer_disable_interrupts_by_id(7);
-                    rftimer_disable_interrupts();
                     g_channel_cal_state = CHANNEL_CAL_STATE_DONE;
                 }
                 break;
