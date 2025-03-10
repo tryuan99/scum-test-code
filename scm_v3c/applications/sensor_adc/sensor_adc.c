@@ -17,7 +17,7 @@
 #include "tuning.h"
 
 // Maximum number of sensors in the packet.
-#define MAX_NUM_SMARTSTAKE_SENSORS 4
+#define MAX_NUM_SMARTSTAKE_SENSORS 8
 
 // RF timer ID.
 #define RFTIMER_ID 7
@@ -86,48 +86,22 @@ static const sensors_config_t g_sensors_config = {
             GPIO_2,
             GPIO_3,
         },
-    .num_sensors = 4,
+    .num_sensors = 5,
     .sensors =
         {
             SENSOR_TYPE_POTENTIOMETRIC,
             SENSOR_TYPE_POTENTIOMETRIC,
-            SENSOR_TYPE_RESISTIVE,
-            SENSOR_TYPE_RESISTIVE,
+            SENSOR_TYPE_POTENTIOMETRIC,
+            SENSOR_TYPE_POTENTIOMETRIC,
+            SENSOR_TYPE_POTENTIOMETRIC,
         },
     .sensor_configs =
         {
             {0},
             {0},
-            {
-                .resistive_config =
-                    {
-                        .rftimer_id = RFTIMER_ID,
-                        .sampling_period_ms = 10,
-                        .gpio_excitation = GPIO_4,
-                        .sensor_capacitor_config =
-                            {
-                                .num_capacitors = 1,
-                                .gpios = {GPIO_6},
-                                .num_capacitor_masks = 1,
-                                .capacitor_masks = {CAPACITOR_MASK_1},
-                            },
-                    },
-            },
-            {
-                .resistive_config =
-                    {
-                        .rftimer_id = RFTIMER_ID,
-                        .sampling_period_ms = 10,
-                        .gpio_excitation = GPIO_5,
-                        .sensor_capacitor_config =
-                            {
-                                .num_capacitors = 1,
-                                .gpios = {GPIO_7},
-                                .num_capacitor_masks = 1,
-                                .capacitor_masks = {CAPACITOR_MASK_1},
-                            },
-                    },
-            },
+            {0},
+            {0},
+            {0},
         },
 };
 
@@ -190,7 +164,6 @@ int main(void) {
     sensors_init(&g_sensors_config);
     while (true) {
         // Measure the sensors.
-        printf("Measuring the sensors.\n");
         sensors_measurements_t sensor_measurements;
         sensors_measure(&sensor_measurements);
 

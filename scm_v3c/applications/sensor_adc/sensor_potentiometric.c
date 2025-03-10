@@ -14,5 +14,5 @@ uint16_t sensor_potentiometric_measure(void) {
     for (size_t i = 0; i < NUM_SAMPLES_TO_AVERAGE; ++i) {
         adc_output_sum += adc_read_output();
     }
-    return adc_output_sum / 64;
+    return adc_output_sum / NUM_SAMPLES_TO_AVERAGE;
 }
