@@ -27,13 +27,13 @@
 #define NUM_CYCLES_BETWEEN_ADC_READS 300000
 
 // Start coarse code for the sweep to find 802.15.4 channels.
-#define START_COARSE_CODE 23
+#define START_COARSE_CODE 26
 
 // End coarse code for the sweep to find 802.15.4 channels.
-#define END_COARSE_CODE 24
+#define END_COARSE_CODE 26
 
 // 802.15.4 channel on which to transmit the ADC data.
-#define IEEE_802_15_4_TX_CHANNEL 17
+#define IEEE_802_15_4_TX_CHANNEL 26
 
 // TX packet containing the ADC data.
 typedef struct __attribute__((packed)) {
