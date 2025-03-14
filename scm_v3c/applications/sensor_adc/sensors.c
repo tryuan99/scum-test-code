@@ -33,6 +33,17 @@ void sensors_measure(sensors_measurements_t* sensors_measurements) {
         // Select the sensor.
         sensors_select_sensor(i);
 
+        // For the ARPA-E summit demo, toggle the switches to isolate sensors.
+        if (i == 0) {
+            gpio_set_high(GPIO_13);
+            gpio_set_low(GPIO_14);
+            gpio_set_low(GPIO_15);
+        } else {
+            gpio_set_low(GPIO_13);
+            gpio_set_high(GPIO_14);
+            gpio_set_high(GPIO_15);
+        }
+
         // Measure the sensor.
         switch (g_sensors_config.sensors[i]) {
             case SENSOR_TYPE_POTENTIOMETRIC: {

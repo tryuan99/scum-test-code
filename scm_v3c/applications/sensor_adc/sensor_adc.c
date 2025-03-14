@@ -17,7 +17,7 @@
 
 // Number of for loop cycles between ADC reads.
 // 700000 for loop cycles roughly correspond to 1 second.
-#define NUM_CYCLES_BETWEEN_ADC_READS 4000000
+#define NUM_CYCLES_BETWEEN_ADC_READS 400000
 
 // ADC configuration.
 static const adc_config_t g_adc_config = {
@@ -43,32 +43,22 @@ static const sensors_config_t g_sensors_config = {
             GPIO_2,
             GPIO_3,
         },
-    .num_sensors = 3,
+    .num_sensors = 5,
     .sensors =
         {
             SENSOR_TYPE_POTENTIOMETRIC,
             SENSOR_TYPE_POTENTIOMETRIC,
-            SENSOR_TYPE_RESISTIVE,
+            SENSOR_TYPE_POTENTIOMETRIC,
+            SENSOR_TYPE_POTENTIOMETRIC,
+            SENSOR_TYPE_POTENTIOMETRIC,
         },
     .sensor_configs =
         {
             {0},
             {0},
-            {
-                .resistive_config =
-                    {
-                        .rftimer_id = RFTIMER_ID,
-                        .sampling_period_ms = 10,
-                        .gpio_excitation = GPIO_4,
-                        .sensor_capacitor_config =
-                            {
-                                .num_capacitors = 1,
-                                .gpios = {GPIO_5},
-                                .num_capacitor_masks = 1,
-                                .capacitor_masks = {CAPACITOR_MASK_1},
-                            },
-                    },
-            },
+            {0},
+            {0},
+            {0},
         },
 };
 
